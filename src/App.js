@@ -1,16 +1,16 @@
-import React from 'react'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import ProductManagementRouter from './productManagement/ProductManagementRouter'; // Import the Product Management Router
+import React from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import ProductManagementRouter from './productManagement/productManagementRouter'; // Import the Product Management Router
 
-import Login from './components/login.component'
-import SignUp from './components/signup.component'
-import UserDetails from './components/user-details'
-import ProductForm from './productManagement/productForm/productForm';
+import Login from './components/login.component';
+import SignUp from './components/signup.component';
+import UserDetails from './components/user-details';
+import ProductForm from './productManagement/productForm/product-form';
 
 function App() {
-  const isLoggedIn = window.localStorage.getItem("loggedIn")
+  const isLoggedIn = window.localStorage.getItem("loggedIn");
   return (
     <Router>
       <div className="App">
@@ -31,6 +31,11 @@ function App() {
                     Sign up
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to={'/product-form'}>
+                    Product Form
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -43,14 +48,14 @@ function App() {
               <Route path="/sign-in" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
               <Route path="/userDetails" element={<UserDetails />} />
-              <Route path="/product-form" component={ProductForm} />
+              <Route path="/product-form" element={<ProductForm />} />
               <Route path="/product-management" element={<ProductManagementRouter />} /> {/* Use 'element' to render components */}
             </Routes>
           </div>
         </div>
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
