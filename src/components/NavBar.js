@@ -35,7 +35,7 @@ const NavBar = () => {
               noWrap
               sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
             >
-              You Are Welcome
+              Welcome to Local-Farmer
             </Typography>
             <Typography
               variant="h6"
