@@ -15,12 +15,20 @@ export const createRoom = async (room, currentUser, dispatch, setPage) => {
       payload: {
         open: true,
         severity: 'success',
-        message: 'The room has been added successfully',
+        message: 'The product has been added successfully',
       },
     });
     dispatch({ type: 'RESET_ROOM' });
     setPage(0);
+    dispatch({ type: 'UPDATE_ROOM', payload: result });
   }
 
   dispatch({ type: 'END_LOADING' });
+};
+
+export const getRooms = async (dispatch) => {
+  const result = await fetchData({ url, method: 'GET' }, dispatch);
+  if (result) {
+    dispatch({ type: 'UPDATE_ROOMS', payload: result });
+  }
 };
